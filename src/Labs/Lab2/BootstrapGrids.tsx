@@ -33,8 +33,7 @@ export default function BootstrapGrids() {
                         </div>
                     </div>
             </div>
-
-            <h1>Wide browser window shows 4 columns</h1>
+            
             <div id="wd-bs-responsive-grids">
             <h2>Responsive grid system</h2>
                 <div className="row">
@@ -51,52 +50,6 @@ export default function BootstrapGrids() {
                     <h3>Column C</h3>
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 
-                                    bg-success text-white">
-                    <h3>Column D</h3>
-                    </div>
-                </div>
-            </div>
-
-            <h1>Moderate browser window shows 2 columns</h1>
-            <div id="wd-bs-responsive-grids">
-            <h2>Responsive grid system</h2>
-                <div className="row">
-                    <div className="col-12 col-md-6 col-xl-6 
-                                    bg-warning">
-                    <h3>Column A</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-6 
-                                    bg-primary text-white">
-                    <h3>Column B</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-6
-                                    bg-danger text-white">
-                    <h3>Column C</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-6
-                                    bg-success text-white">
-                    <h3>Column D</h3>
-                    </div>
-                </div>
-            </div>
-
-            <h1>Thin browser window shows only 1 column</h1>
-            <div id="wd-bs-responsive-grids">
-            <h2>Responsive grid system</h2>
-                <div className="row">
-                    <div className="col-12 col-md-6 col-xl-12 
-                                    bg-warning">
-                    <h3>Column A</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-12
-                                    bg-primary text-white">
-                    <h3>Column B</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-12 
-                                    bg-danger text-white">
-                    <h3>Column C</h3>
-                    </div>
-                    <div className="col-12 col-md-6 col-xl-12 
                                     bg-success text-white">
                     <h3>Column D</h3>
                     </div>

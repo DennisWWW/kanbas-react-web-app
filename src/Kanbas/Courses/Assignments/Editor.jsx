@@ -1,11 +1,17 @@
+import { useParams, Link } from "react-router-dom";
+import * as db from "../../Database";
+
 export default function AssignmentEditor() {
+    const { cid, aid } = useParams();
+    const assignment = db.assignments.find((a) => a._id === aid && a.course === cid);
+    
     return (
       <div id="wd-assignments-editor">
             <h2>Assignment Name</h2>
 
             <div className="mb-3">
-                <input id="wd-name" value="A1" className="form-control" />
-                </div>
+                <input id="wd-name" value={assignment.title} className="form-control" />
+            </div>
 
     
                 <div className="mb-3">
@@ -29,7 +35,7 @@ export default function AssignmentEditor() {
                 <label htmlFor="wd-points" className="col-sm-2 form-label text-end">Points</label>
 
                 <div className="col-md-10">
-                <input id="wd-points" value={100} type="number" className="form-control" />
+                <input id="wd-points" value={assignment.points} type="number" className="form-control" />
                 </div>
             </div>
 
@@ -85,7 +91,6 @@ export default function AssignmentEditor() {
                         <input type="checkbox" className="form-check-input" id="wd-file-upload" />
                         <label className="form-check-label" htmlFor="wd-file-upload">File Uploads</label>
                         </div>
-                  
                     </div>
                 </div>
             </div>
@@ -100,28 +105,27 @@ export default function AssignmentEditor() {
                         </div>
                         <div className="col-md-6">
                         <label htmlFor="wd-due-date" className="form-label">Due</label>
-                        <input id="wd-due-date" type="date" defaultValue="2024-05-13" className="form-control" />
+                        <input id="wd-due-date" type="date" defaultValue={assignment.dueDate} className="form-control" />
                         </div>
                     </div>
 
                     <div className="row mb-3">
                         <div className="col-md-6">
                         <label htmlFor="wd-available-from" className="form-label">Available from</label>
-                        <input id="wd-available-from" type="date" defaultValue="2024-05-06" className="form-control" />
+                        <input id="wd-available-from" type="date" defaultValue={assignment.availableDate} className="form-control" />
                         </div>
                         <div className="col-md-6">
                         <label htmlFor="wd-available-until" className="form-label">Until</label>
-                        <input id="wd-available-until" type="date" defaultValue="2024-05-20" className="form-control" />
+                        <input id="wd-available-until" type="date" defaultValue={assignment.availableUntil} className="form-control" />
                         </div>
                     </div>
                 </div>
             </div>
-        
         <hr />
 
         <div className="text-end">
-            <button className="btn btn-secondary me-3">Cancel</button>
-            <button className="btn btn-danger">Save</button>
+            <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-3">Cancel</Link>
+            <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger">Save</Link>
         </div>
    
     </div>

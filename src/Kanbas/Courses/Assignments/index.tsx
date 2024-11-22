@@ -5,9 +5,13 @@ import { HiDotsVertical } from "react-icons/hi";
 import { GiStabbedNote } from "react-icons/gi";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 import { deleteAssignment } from "./reducer";
 import { RootState } from "../../store";
+import * as assignmentsClient from "./client";
+import { setAssignments } from "./reducer";
+import { useEffect } from "react";
 
 // Assuming Assignment type is defined based on the assignment structure
 interface Assignment {
@@ -22,23 +26,33 @@ interface Assignment {
 }
 
 export default function Assignments() {
-  const { cid } = useParams<{ cid: string }>();
+  const { cid } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-
+  const isFaculty = currentUser?.role === "FACULTY";
   // Retrieve assignments from the Redux store via assignmentsReducer
   const assignments = useSelector((state: RootState) =>
     state.assignmentsReducer.assignments.filter((assignment: Assignment) => assignment.course === cid)
   );
 
-  const handleDelete = (assignmentId: string) => {
+  const fetchAssignments = async () => { 
+    const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  }
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  const handleDelete = async (assignmentId: string) => {
     if (window.confirm("Are you sure you want to delete this assignment?")) {
+      assignmentsClient.deleteAssignment(assignmentId);
       dispatch(deleteAssignment(assignmentId));
     }
   };
 
-  const isFaculty = currentUser?.role === "FACULTY";
+  
+
 
   return (
     <div id="wd-assignments" className="container">

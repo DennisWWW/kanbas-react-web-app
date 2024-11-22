@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { addAssignment, updateAssignment } from "./reducer";
 import { RootState } from "../../store";
+import { createAssignment, updateAssignment as updateAssignmentAPI } from "./client"; 
 
 type Assignment = {
     _id: string;
@@ -48,17 +49,21 @@ export default function AssignmentEditor() {
   }, [assignment]);
 
   // Handle form changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [id]: value }));
   };
-
+  
   // Save handler for adding or updating
-  const handleSave = () => {
+  const handleSave = async () => {
     if (assignment) {
-      dispatch(updateAssignment(formData)); // Update existing
+      await updateAssignmentAPI(formData);
+      dispatch(updateAssignment(formData))
     } else {
-      dispatch(addAssignment(formData)); // Add new
+      await createAssignment(cid as string, formData);
+      dispatch(addAssignment(formData))
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };

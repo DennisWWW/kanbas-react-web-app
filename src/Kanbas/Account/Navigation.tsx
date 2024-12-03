@@ -18,6 +18,10 @@ export default function AccountNavigation() {
       className={`list-group-item border-0 ${location.pathname === '/Kanbas/Account/Signup' ? 'active' : 'text-danger'}`}> Signup  </Link> 
       <Link 
       to={`/Kanbas/Account/Profile`} 
-      className={`list-group-item border-0 ${location.pathname === '/Kanbas/Account/Profile' ? 'active' : 'text-danger'}`}> Profile </Link> <br/>
+      className={`list-group-item border-0 ${location.pathname === '/Kanbas/Account/Profile' ? 'active' : 'text-danger'}`}> Profile </Link> 
+           
+      {currentUser && currentUser.role === "ADMIN" && (
+       <Link to={`/Kanbas/Account/Users`} 
+       className={`list-group-item border-0 ${location.pathname === '/Kanbas/Account/Users' ? 'active' : 'text-danger'}`}> Users </Link> )}<br/>
     </div>
 );}

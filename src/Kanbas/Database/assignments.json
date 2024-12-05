@@ -1,8 +1,11 @@
+
 [
     { 
-      "_id": "A101", 
+      "id": "A101", 
       "title": "Propulsion Assignment", 
-      "course": "CS1234",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad8"
+      },
       "description": "Analyze propulsion systems used in modern aircraft.",
       "points": 100,
       "availableDate": "2024-05-01",
@@ -10,9 +13,11 @@
       "dueDate": "2024-05-15"
     },
     { 
-      "_id": "A102", 
+      "id": "A102", 
       "title": "Combustion Analysis", 
-      "course": "CS1234",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad8"
+      },
       "description": "Study combustion processes in engines and calculate the efficiency.",
       "points": 150,
       "availableDate": "2024-05-05",
@@ -20,9 +25,11 @@
       "dueDate": "2024-05-20"
     },
     { 
-      "_id": "A103", 
+      "id": "A103", 
       "title": "Nozzle Design Project", 
-      "course": "CS1234",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad8"
+      },
       "description": "Design a high-efficiency nozzle for jet propulsion.",
       "points": 200,
       "availableDate": "2024-05-10",
@@ -30,9 +37,11 @@
       "dueDate": "2024-05-25"
     },
     { 
-      "_id": "A201", 
+      "id": "A201", 
       "title": "Aerodynamics Quiz", 
-      "course": "CS1235",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad9"
+      },
       "description": "Test your knowledge of aerodynamic principles.",
       "points": 50,
       "availableDate": "2024-06-01",
@@ -40,9 +49,11 @@
       "dueDate": "2024-06-05"
     },
     { 
-      "_id": "A202", 
+      "id": "A202", 
       "title": "Flow Analysis", 
-      "course": "CS1235",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad9"
+      },
       "description": "Analyze airflow over various wing designs.",
       "points": 120,
       "availableDate": "2024-06-03",
@@ -50,9 +61,11 @@
       "dueDate": "2024-06-12"
     },
     { 
-      "_id": "A203", 
+      "id": "A203", 
       "title": "Heating Analysis", 
-      "course": "CS1235",
+      "course": {
+        "$oid": "67507b23c347096bfd30aad9"
+      },
       "description": "Study heat transfer in different aerospace materials.",
       "points": 140,
       "availableDate": "2024-06-10",
@@ -60,9 +73,11 @@
       "dueDate": "2024-06-18"
     },
     { 
-      "_id": "A301", 
+      "id": "A301", 
       "title": "Structural Design Task", 
-      "course": "CS1236",
+      "course": {
+        "$oid": "67507b23c347096bfd30aada"
+      },
       "description": "Design a lightweight yet strong structure for a satellite.",
       "points": 180,
       "availableDate": "2024-07-01",
@@ -70,9 +85,11 @@
       "dueDate": "2024-07-15"
     },
     { 
-      "_id": "A302", 
+      "id": "A302", 
       "title": "Orbital Calculations", 
-      "course": "CS1236",
+      "course": {
+        "$oid": "67507b23c347096bfd30aada"
+      },
       "description": "Calculate the orbit trajectory for a low-Earth satellite.",
       "points": 200,
       "availableDate": "2024-07-05",
@@ -80,9 +97,11 @@
       "dueDate": "2024-07-20"
     },
     { 
-      "_id": "A303", 
+      "id": "A303", 
       "title": "Systems Engineering Exam", 
-      "course": "CS1236",
+      "course": {
+        "$oid": "67507b23c347096bfd30aada"
+      },
       "description": "Test your knowledge on systems engineering principles.",
       "points": 100,
       "availableDate": "2024-07-10",
